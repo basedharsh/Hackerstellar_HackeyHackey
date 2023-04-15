@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:spaceodyssey/screen/chatbot.dart';
+import 'package:spaceodyssey/screen/portfolio.dart';
 
 class Explore extends StatefulWidget {
   const Explore({super.key});
@@ -13,6 +15,18 @@ class _ExploreState extends State<Explore> {
   Widget build(BuildContext context) {
     var mq = MediaQuery.of(context).size;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Chatbotsupport(),
+            ),
+          );
+        },
+        child: Icon(Icons.chat_bubble),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      ),
       body: Column(
         children: [
           SizedBox(height: 50),
