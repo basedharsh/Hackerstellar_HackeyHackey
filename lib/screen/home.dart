@@ -12,6 +12,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    var mq = MediaQuery.of(context).size;
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -32,7 +34,7 @@ class _HomeState extends State<Home> {
             child: Container(
               // padding: EdgeInsets.only(top: 56, ),
               width: double.infinity,
-              height: 250,
+              height: mq.height * 0.3,
               decoration: BoxDecoration(color: Colors.teal),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
