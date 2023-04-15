@@ -47,6 +47,8 @@ dependencies:
   provider: ^6.0.5
   dialog_flowtter: ^0.3.3
   carousel_slider: ^4.2.1
+  syncfusion_flutter_charts: ^19.1.59
+  yahoofin: ^0.0.8
 
 dev_dependencies:
   flutter_test:

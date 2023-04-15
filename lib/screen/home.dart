@@ -1,6 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:spaceodyssey/screen/portfolio.dart';
 import 'package:spaceodyssey/screen/searchstock.dart';
+import 'package:intl/intl.dart';
+import 'package:yahoofin/yahoofin.dart';
+
+List<String> stockList = ["amzn", "googl", "aapl", "msft", "tsla"];
+
+var yfin = YahooFin();
+var stockInfo;
+var stockInfoList = [];
+var stockDetails;
+var stockDetailsList = [];
+
+void getStockDetails()async{
+
+  //stockInfo = await yfin.getStockInfo(ticker: "air");
+  stockInfoList = List.generate(
+          stockList.length,
+          (index){
+            return yfin.getStockInfo(ticker: stockList[index]);
+          });
+  print("stockInfoList");
+  print(stockInfoList);
+
+  for(int i=0;i<stockInfoList.length;i++){
+     await stockInfoList[i].getStockData().then(
+            (value)  {
+          stockDetailsList.add(value);
+        }
+    );
+  }
+  print("stockDetailsList");
+  print(stockDetailsList);
+
+  // await stockInfo.getStockData().then(
+  //         (value)  {
+  //       stockDetails = value;
+  //     }
+  // );
+
+  print(stockDetails.currentPrice);
+}
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,6 +50,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  @override
+  void initState(){
+
+    setState(() {
+      getStockDetails();
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var mq = MediaQuery.of(context).size;
@@ -84,41 +134,57 @@ class _HomeState extends State<Home> {
                   color: Colors.black),
             ),
           ),
-          Container(
-            padding: EdgeInsets.all(20),
-            height: 90,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Dhanuka',
-                  style: TextStyle(fontSize: 21, fontWeight: FontWeight.w600),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  textBaseline: TextBaseline.alphabetic,
-                  children: [
-                    Text(
-                      '711.10',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 124, 233, 0),
-                          fontSize: 20),
+          Column(
+            children: List.generate((stockDetailsList!=null)?stockDetailsList.length:0, (index){
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: (){
+
+                  },
+                  child: Container(
+                    color: Colors.blue,
+                    child: Row(
+                      children: [
+                        Text(
+                          (stockDetailsList[index]!=null)?stockDetailsList[index].metaData?.longName:"----",
+                          style: TextStyle(fontSize: 21, fontWeight: FontWeight.w600),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  (stockDetailsList[index]!=null)?stockDetailsList[index].dayHigh.toString():"----",
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 124, 233, 0),
+                                      fontSize: 20),
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  (stockDetailsList[index]!=null)?stockDetailsList[index].dayLow.toString():"----",
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 233, 124, 0),
+                                      fontSize: 20),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              (stockDetailsList[index]!=null)?stockDetailsList[index].regularMarketChange.toStringAsFixed(3).toString()+"%":"----",
+                              style:
+                              TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    Text(
-                      '(4.34%)',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                    ),
-                  ],
+                  ),
                 ),
-              ],
-            ),
-          ),
-          Divider(
-            color: Colors.grey,
-            thickness: 1,
-            endIndent: 20,
-            indent: 20,
+              );
+            })
           ),
         ],
       ),
