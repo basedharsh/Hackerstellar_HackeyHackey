@@ -33,7 +33,7 @@ class _ChatbotsupportState extends State<Chatbotsupport> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "Write your query here",
+                "Write your query here?",
                 style: TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 20,
