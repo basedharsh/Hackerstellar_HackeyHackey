@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "spaceodessey-fsyv",
+  "private_key_id": "c7299420e567235333bfa766aa274bb679d014b2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDBP1g5Brpc0Oxh\n2ufP96q8KsvPUZB7AF1QhUwjNX2XPgqDaFWKiEZl4soMCSkhN8dZDGxEmPpVl6TT\nOW4ngssqBXEuxQbo9N/0TPSusLE4Im4eigqA8VCig9PNhwP765hP8RIZHI62dIzc\n/kn7kze65ybM+1q8GNp5mCCvklo7adxktlmrzLoYmdNF2QiXbefRV6GzHV6jEpBv\n8c7SlGeiyHAqcKeNDACA+DsK5I2niFPsr4REb0TYOwNdacaH5/wIpKIxky4f+9fy\n1l2pDqhrkYc2o47gmU9HcTzOD6xRJq2kxGtsNP+M88bEbFnSuecO4HNidPAeJnzH\nMUGaKpwRAgMBAAECggEAFk9H0h2SulBsWce552qCTYLrUJ3r/idGnpsk9ROh0ioZ\ncJ5E8d9VsUGDbexI0UrtOrySa0D19ZeyMah5rRoOdmV2cZ3RdGeAy2VvAhPoAcEH\n0YLCP6ycUIbDlwC1VwoV5XTBUCDZ4PqHoKPCysZuMqeo9RU3nmuIHW2QqHRO8njM\nyiS6JJLWDfdqGigraKLggDYLpzI2LydAMVsY3XCbOHJdae066DIU8fjxOm3SOnMk\n0QJr0mB4D2Rl9KjVaf34pgBGA2W4mfjxmDVjfeLZp37IFzChjcngLGaAurorV70K\nEuqIxQP3ORTZH2zqAUMmwZG63fZzSFyYruEfzjYK2QKBgQDqM//fWcX8u5w84pZo\nUOu5aMNT0NkyYUimWZPymAWdXEFjdnCQrjqxPqAZ69dPDIoSP2jAnmnrjNXi8zq7\nnJcPWKzy7GqUwW/96x/EtP97cP28KWfvmGHBaTpfnTOwXNazEIbdxZ4ktCkGxv12\nRQOT+6YX4xWjTfknoMJbFGZS6wKBgQDTO455dt+9Z1y7FHtZZX4Dznk9iHijlS3A\nYaQYcBqCPN1VxzJ55IlE1gGsNPESNDjRInDlL7jMRcNHfjAOI7T9EJIcGLUm8qBN\nks/ZVUqJ8oJ7vfcudcdsodQpR3+tqXSHEN7BtIExKOmIjttz4+LZ/K1Q4jH8ZHLc\n+9/jXU318wKBgGtN9d8Ul7TrFHOE8ZrL8KTbjhr55nnBvvKQukt9QZ1Oppr2qi5v\n1W5eHiaiOtz6BszDhrAyJJ+KwHiiLnfFECU04NDQZyjO1AwHzV9n+mJJa8fpRLiv\nHaLrHpauRP96GdijKtezcniont9/DqRAjJohw4DQR5qx4AU7D7GBUDyPAoGAadZM\nc9W5E0in8OC5UTiGJFge7VLkx2nmq58AvnHlBl6CtAkD5Ik6si/cVLGOHIXn9fmg\nwWTg3hESYE78uwjvFWFpJATJN4OYCGZIGGgg2e+Vq3SqVjATRP3stOYrNhNS3J36\nTuonVT9fi9mwYWfMcVambIF5dDHMT6cwLdbBSjsCgYEAgf6dCW//yybmKL6fRptX\nJjpbnJOQgI1clI+ny4aDYCumpRXnygircFeIIv4JzGu2TW3FdQTwtG1uE2FDAdzq\ngkrt3RDczetaq8PZxQlYv69jXnJ+/8BLvrYZExyhNPCpN7TuRhYZNvMjc3iiZZW4\n8zRD/qrvBWepvoRnP684c1w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "spacebot@spaceodessey-fsyv.iam.gserviceaccount.com",
+  "client_id": "105322957537567549703",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/spacebot%40spaceodessey-fsyv.iam.gserviceaccount.com"
+}

@@ -15,7 +15,7 @@ class Bottom extends StatefulWidget {
 
 class _BottomState extends State<Bottom> {
   int index_color = 0;
-  List Screen = [Home(), Stat(), Explore(), trialui()];
+  List Screen = [Home(), Stat(), Explore(), User()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
