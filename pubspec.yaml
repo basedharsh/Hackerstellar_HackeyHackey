@@ -45,9 +45,7 @@ dependencies:
   uuid: ^3.0.7
   cloud_firestore: ^4.4.0
   provider: ^6.0.5
-  firebase_auth: ^4.4.1
   dialog_flowtter: ^0.3.3
-
 
 dev_dependencies:
   flutter_test:
