@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spaceodyssey/widgets/screen/home.dart';
+import 'package:spaceodyssey/screen/home.dart';
 
 class Bottom extends StatefulWidget {
   const Bottom({Key? key}) : super(key: key);
