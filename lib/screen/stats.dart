@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:spaceodyssey/screen/loginpage.dart';
 
 class Stat extends StatefulWidget {
   const Stat({super.key});
@@ -10,6 +12,17 @@ class Stat extends StatefulWidget {
 class _StatState extends State<Stat> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: MaterialButton(
+          onPressed: (){
+            FirebaseAuth.instance.signOut().then((value) =>
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => LoginPage())));
+          },
+          child: Text("LOGOUT"),
+        ),
+      ),
+    );
   }
 }
