@@ -39,6 +39,8 @@ dependencies:
   rive: ^0.10.4
   google_fonts: ^4.0.3
   firebase_core: ^2.9.0
+  firebase_auth: ^4.4.1
+  dialog_flowtter: ^0.3.3
 
 dev_dependencies:
   flutter_test:
