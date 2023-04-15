@@ -94,8 +94,17 @@ class _UserState extends State<User> {
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 10,
           ),
+          Text(
+            'Profile',
+            style: TextStyle(fontSize: 18),
+          ),
+          CircleAvatar(
+              radius: 30,
+              child: CircleAvatar(
+                radius: 30,
+              ))
         ],
       ),
     );
