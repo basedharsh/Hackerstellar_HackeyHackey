@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:spaceodyssey/screen/graph.dart';
 import 'package:spaceodyssey/screen/home.dart';
+import 'package:spaceodyssey/screen/stats.dart';
+import 'package:spaceodyssey/screen/user.dart';
 
 class Bottom extends StatefulWidget {
   const Bottom({Key? key}) : super(key: key);
@@ -10,7 +13,7 @@ class Bottom extends StatefulWidget {
 
 class _BottomState extends State<Bottom> {
   int index_color = 0;
-  List Screen = [Home()];
+  List Screen = [Home(), Stat(), Graph(), User()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,9 +40,7 @@ class _BottomState extends State<Bottom> {
                 child: Icon(
                   Icons.home,
                   size: 30,
-                  color: index_color == 0
-                      ? Color.fromARGB(255, 23, 23, 23)
-                      : Colors.grey,
+                  color: index_color == 0 ? Colors.teal : Colors.grey,
                 ),
               ),
               GestureDetector(
