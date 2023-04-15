@@ -39,8 +39,15 @@ dependencies:
   rive: ^0.10.4
   google_fonts: ^4.0.3
   firebase_core: ^2.9.0
+  firebase_storage: ^11.0.13
+  path_provider: ^2.0.12
+  firebase_auth: ^4.2.8
+  uuid: ^3.0.7
+  cloud_firestore: ^4.4.0
+  provider: ^6.0.5
   firebase_auth: ^4.4.1
   dialog_flowtter: ^0.3.3
+
 
 dev_dependencies:
   flutter_test:

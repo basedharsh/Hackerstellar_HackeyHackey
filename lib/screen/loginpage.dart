@@ -6,6 +6,8 @@ import 'package:rive/rive.dart';
 import 'package:spaceodyssey/screen/signuppage.dart';
 import 'package:spaceodyssey/widgets/bottomnav.dart';
 
+import '../auths/loginauth.dart';
+
 TextEditingController emailAddress = TextEditingController();
 TextEditingController password = TextEditingController();
 
@@ -52,6 +54,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    LoginAuthorization loginAuth = Provider.of<LoginAuthorization>(context);
     // MediaQuery for responsive design
     final Size size = MediaQuery.of(context).size;
 
@@ -226,14 +229,13 @@ class _MyAppState extends State<MyApp> {
                       ),
                       SizedBox(height: 20),
 
-                      MaterialButton(
+                      (loginAuth.loading == false)?MaterialButton(
                         onPressed: () {
                           //Login button on pressed validation
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Bottom(),
-                            ),
+                          loginAuth.loginValidation(
+                              emailAddress: emailAddress,
+                              password: password,
+                              context: context
                           );
                         },
                         child: Text(
@@ -244,10 +246,9 @@ class _MyAppState extends State<MyApp> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                      ),
-                      // : Center(
-                      //     child: CircularProgressIndicator(),
-                      //   ),
+                      ):Center(
+                          child: CircularProgressIndicator(),
+                        ),
                       SizedBox(height: 10),
                       Divider(
                         color: Color.fromARGB(255, 82, 80, 80),

@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:spaceodyssey/screen/loginpage.dart';
 
+import '../auths/signupauth.dart';
+
 TextEditingController username = TextEditingController();
 TextEditingController emailAddress = TextEditingController();
 TextEditingController password = TextEditingController();
@@ -49,6 +51,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SignupAuthorization signupAuth = Provider.of<SignupAuthorization>(context);
     // media query
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -267,8 +270,15 @@ class _MyAppState extends State<MyApp> {
                       ),
                       SizedBox(height: 20),
 
-                      MaterialButton(
-                        onPressed: () {},
+                      (signupAuth.loading == false)?MaterialButton(
+                        onPressed: () {
+                          signupAuth.signupValidation(
+                              username: username,
+                              emailAddress: emailAddress,
+                              password: password,
+                              context: context
+                          );
+                        },
                         hoverColor: Color.fromARGB(255, 206, 7, 0),
                         child: Text(
                           "Sign Up",
@@ -278,10 +288,9 @@ class _MyAppState extends State<MyApp> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                      ),
-                      // : Center(
-                      //     child: CircularProgressIndicator(),
-                      //   ),
+                      ):Center(
+                          child: CircularProgressIndicator(),
+                        ),
                       SizedBox(height: 20),
                       Divider(
                         color: Color.fromARGB(255, 34, 33, 33),
