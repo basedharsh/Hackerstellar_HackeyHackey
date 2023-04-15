@@ -38,7 +38,7 @@ class _PortfolioState extends State<Portfolio> {
             ),
             Container(
               padding: EdgeInsets.all(20),
-              height: 150,
+              height: 149,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
