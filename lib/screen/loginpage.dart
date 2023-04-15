@@ -229,26 +229,28 @@ class _MyAppState extends State<MyApp> {
                       ),
                       SizedBox(height: 20),
 
-                      (loginAuth.loading == false)?MaterialButton(
-                        onPressed: () {
-                          //Login button on pressed validation
-                          loginAuth.loginValidation(
-                              emailAddress: emailAddress,
-                              password: password,
-                              context: context
-                          );
-                        },
-                        child: Text(
-                          "Login",
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        ),
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ):Center(
-                          child: CircularProgressIndicator(),
-                        ),
+                      (loginAuth.loading == false)
+                          ? MaterialButton(
+                              onPressed: () {
+                                //Login button on pressed validation
+                                loginAuth.loginValidation(
+                                    emailAddress: emailAddress,
+                                    password: password,
+                                    context: context);
+                              },
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            )
+                          : Center(
+                              child: CircularProgressIndicator(),
+                            ),
                       SizedBox(height: 10),
                       Divider(
                         color: Color.fromARGB(255, 82, 80, 80),
