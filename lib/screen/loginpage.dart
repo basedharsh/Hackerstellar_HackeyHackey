@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
+import 'package:spaceodyssey/screen/signuppage.dart';
 import 'package:spaceodyssey/widgets/bottomnav.dart';
 
 TextEditingController emailAddress = TextEditingController();
@@ -266,7 +267,14 @@ class _MyAppState extends State<MyApp> {
                             ),
                           ),
                           GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => SignUpPage(),
+                                  ),
+                                );
+                              },
                               child: Text(' Signup',
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 93, 0, 255),
