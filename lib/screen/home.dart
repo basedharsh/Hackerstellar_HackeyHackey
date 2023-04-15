@@ -63,10 +63,10 @@ class _HomeState extends State<Home> {
       child: Column(
         children: [
           Container(
-            decoration: const BoxDecoration(
+           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/space.gif"), fit: BoxFit.fitWidth),
-            ),
+            ), 
             height: 40,
             width: double.infinity,
           ),
