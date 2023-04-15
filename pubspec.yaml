@@ -49,6 +49,7 @@ dependencies:
   carousel_slider: ^4.2.1
   syncfusion_flutter_charts: ^19.1.59
   yahoofin: ^0.0.8
+  url_launcher: ^6.1.10
 
 dev_dependencies:
   flutter_test:
