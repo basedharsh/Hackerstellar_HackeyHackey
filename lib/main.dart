@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Space Odyssey',
       theme: ThemeData(
-        primaryColor: Color(0xff2f3640),
+        primaryColor: Color.fromARGB(255, 255, 255, 255),
       ),
       home: LoginPage(),
     );
