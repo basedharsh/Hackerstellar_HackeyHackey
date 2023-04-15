@@ -13,6 +13,7 @@ var stockDetails;
 var stockDetailsList = [];
 
 void getStockDetails() async {
+  stockDetailsList = await [];
   //stockInfo = await yfin.getStockInfo(ticker: "air");
   stockInfoList = List.generate(stockList.length, (index) {
     return yfin.getStockInfo(ticker: stockList[index]);
@@ -137,56 +138,62 @@ class _HomeState extends State<Home> {
               child: GestureDetector(
                 onTap: () {},
                 child: Container(
-                  color: Colors.blue,
-                  child: Row(
-                    children: [
-                      Text(
-                        (stockDetailsList[index] != null)
-                            ? stockDetailsList[index].metaData?.longName
-                            : "----",
-                        style: TextStyle(
-                            fontSize: 21, fontWeight: FontWeight.w600),
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                (stockDetailsList[index] != null)
-                                    ? stockDetailsList[index].dayHigh.toString()
-                                    : "----",
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 124, 233, 0),
-                                    fontSize: 20),
-                              ),
-                              SizedBox(width: 10),
-                              Text(
-                                (stockDetailsList[index] != null)
-                                    ? stockDetailsList[index].dayLow.toString()
-                                    : "----",
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 233, 124, 0),
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
-                          Text(
-                            (stockDetailsList[index] != null)
-                                ? stockDetailsList[index]
-                                        .regularMarketChange
-                                        .toStringAsFixed(3)
-                                        .toString() +
-                                    "%"
-                                : "----",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
-                    ],
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          (stockDetailsList[index] != null)
+                              ? stockDetailsList[index].metaData?.longName
+                              : "----",
+                          style: TextStyle(
+                              fontSize: 21, fontWeight: FontWeight.w600),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Row(
+                              // mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  (stockDetailsList[index] != null)
+                                      ? stockDetailsList[index]
+                                          .dayHigh
+                                          .toString()
+                                      : "----",
+                                  style: TextStyle(
+                                      color: Colors.green, fontSize: 20),
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  (stockDetailsList[index] != null)
+                                      ? stockDetailsList[index]
+                                          .dayLow
+                                          .toString()
+                                      : "----",
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: 20),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              (stockDetailsList[index] != null)
+                                  ? stockDetailsList[index]
+                                          .regularMarketChange
+                                          .toStringAsFixed(3)
+                                          .toString() +
+                                      "%"
+                                  : "----",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
