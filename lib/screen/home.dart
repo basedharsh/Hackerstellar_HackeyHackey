@@ -12,39 +12,45 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    var mq = MediaQuery.of(context).size;
+
     return SingleChildScrollView(
       child: Column(
         children: [
           Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/space.gif"), fit: BoxFit.fitWidth),
+            ),
             height: 40,
             width: double.infinity,
-            color: Colors.teal,
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Searchstock(),
+          Container(
+            // padding: EdgeInsets.only(top: 56, ),
+            width: double.infinity,
+            height: mq.height * 0.3,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/space.gif"), fit: BoxFit.cover),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  'Top Movers',
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white),
                 ),
-              );
-            },
-            child: Container(
-              // padding: EdgeInsets.only(top: 56, ),
-              width: double.infinity,
-              height: 250,
-              decoration: BoxDecoration(color: Colors.teal),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Top Movers',
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white),
-                  ),
-                  Positioned(
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Searchstock()),
+                    );
+                  },
+                  child: Positioned(
                     child: Container(
                       width: 300,
                       margin: EdgeInsets.only(top: 193),
@@ -64,13 +70,23 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              'Trending Stocks',
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black),
             ),
           ),
           Container(
             padding: EdgeInsets.all(20),
-            height: 150,
+            height: 90,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -97,7 +113,13 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
-          )
+          ),
+          Divider(
+            color: Colors.grey,
+            thickness: 1,
+            endIndent: 20,
+            indent: 20,
+          ),
         ],
       ),
     );

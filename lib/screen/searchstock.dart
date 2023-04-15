@@ -10,6 +10,6 @@ class Searchstock extends StatefulWidget {
 class _SearchstockState extends State<Searchstock> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }

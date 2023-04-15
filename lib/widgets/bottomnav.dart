@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spaceodyssey/screen/graph.dart';
+import 'package:spaceodyssey/screen/chatbot.dart';
 import 'package:spaceodyssey/screen/home.dart';
 import 'package:spaceodyssey/screen/portfolio.dart';
 import 'package:spaceodyssey/screen/stats.dart';
@@ -14,7 +14,7 @@ class Bottom extends StatefulWidget {
 
 class _BottomState extends State<Bottom> {
   int index_color = 0;
-  List Screen = [Home(), Stat(), Graph(), User()];
+  List Screen = [Home(), Stat(), Chatbotsupport(), User()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
