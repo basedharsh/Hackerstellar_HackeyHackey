@@ -80,9 +80,10 @@ class _ExploreState extends State<Explore> {
                 ],
               )),
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(00),
                 child: Image.asset(
-                  'images/mamu.gif',
+                  'images/space10.gif',
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
