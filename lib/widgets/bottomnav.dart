@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spaceodyssey/screen/graph.dart';
 import 'package:spaceodyssey/screen/home.dart';
+import 'package:spaceodyssey/screen/portfolio.dart';
 import 'package:spaceodyssey/screen/stats.dart';
 import 'package:spaceodyssey/screen/user.dart';
 
@@ -19,9 +20,16 @@ class _BottomState extends State<Bottom> {
     return Scaffold(
       body: Screen[index_color],
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Portfolio(),
+            ),
+          );
+        },
         child: Icon(Icons.add),
-        backgroundColor: Color.fromARGB(255, 23, 23, 23),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
