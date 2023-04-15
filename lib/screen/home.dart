@@ -12,23 +12,19 @@ var stockInfoList = [];
 var stockDetails;
 var stockDetailsList = [];
 
-void getStockDetails()async{
-
+void getStockDetails() async {
+  stockDetailsList = await [];
   //stockInfo = await yfin.getStockInfo(ticker: "air");
-  stockInfoList = List.generate(
-          stockList.length,
-          (index){
-            return yfin.getStockInfo(ticker: stockList[index]);
-          });
+  stockInfoList = List.generate(stockList.length, (index) {
+    return yfin.getStockInfo(ticker: stockList[index]);
+  });
   print("stockInfoList");
   print(stockInfoList);
 
-  for(int i=0;i<stockInfoList.length;i++){
-     await stockInfoList[i].getStockData().then(
-            (value)  {
-          stockDetailsList.add(value);
-        }
-    );
+  for (int i = 0; i < stockInfoList.length; i++) {
+    await stockInfoList[i].getStockData().then((value) {
+      stockDetailsList.add(value);
+    });
   }
   print("stockDetailsList");
   print(stockDetailsList);
@@ -51,8 +47,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  void initState(){
-
+  void initState() {
     setState(() {
       getStockDetails();
     });
@@ -135,47 +130,65 @@ class _HomeState extends State<Home> {
             ),
           ),
           Column(
-            children: List.generate((stockDetailsList!=null)?stockDetailsList.length:0, (index){
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GestureDetector(
-                  onTap: (){
-
-                  },
-                  child: Container(
-                    color: Colors.blue,
+              children: List.generate(
+                  (stockDetailsList != null) ? stockDetailsList.length : 0,
+                  (index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          (stockDetailsList[index]!=null)?stockDetailsList[index].metaData?.longName:"----",
-                          style: TextStyle(fontSize: 21, fontWeight: FontWeight.w600),
+                          (stockDetailsList[index] != null)
+                              ? stockDetailsList[index].metaData?.longName
+                              : "----",
+                          style: TextStyle(
+                              fontSize: 21, fontWeight: FontWeight.w600),
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           textBaseline: TextBaseline.alphabetic,
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              // mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Text(
-                                  (stockDetailsList[index]!=null)?stockDetailsList[index].dayHigh.toString():"----",
+                                  (stockDetailsList[index] != null)
+                                      ? stockDetailsList[index]
+                                          .dayHigh
+                                          .toString()
+                                      : "----",
                                   style: TextStyle(
-                                      color: Color.fromARGB(255, 124, 233, 0),
-                                      fontSize: 20),
+                                      color: Colors.green, fontSize: 20),
                                 ),
                                 SizedBox(width: 10),
                                 Text(
-                                  (stockDetailsList[index]!=null)?stockDetailsList[index].dayLow.toString():"----",
+                                  (stockDetailsList[index] != null)
+                                      ? stockDetailsList[index]
+                                          .dayLow
+                                          .toString()
+                                      : "----",
                                   style: TextStyle(
-                                      color: Color.fromARGB(255, 233, 124, 0),
-                                      fontSize: 20),
+                                      color: Colors.red, fontSize: 20),
                                 ),
                               ],
                             ),
                             Text(
-                              (stockDetailsList[index]!=null)?stockDetailsList[index].regularMarketChange.toStringAsFixed(3).toString()+"%":"----",
-                              style:
-                              TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                              (stockDetailsList[index] != null)
+                                  ? stockDetailsList[index]
+                                          .regularMarketChange
+                                          .toStringAsFixed(3)
+                                          .toString() +
+                                      "%"
+                                  : "----",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w400),
                             ),
                           ],
                         ),
@@ -183,9 +196,9 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-              );
-            })
-          ),
+              ),
+            );
+          })),
         ],
       ),
     );

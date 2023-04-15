@@ -15,6 +15,18 @@ class User extends StatefulWidget {
 }
 
 class _UserState extends State<User> {
+  var arrColor = [
+    Colors.red,
+    Colors.blue,
+    Colors.green,
+    Colors.orange,
+    Colors.pink,
+    Colors.brown,
+    Colors.grey,
+    Colors.lightGreen,
+    Colors.purple,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
