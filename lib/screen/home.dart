@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:spaceodyssey/screen/portfolio.dart';
 import 'package:spaceodyssey/screen/searchstock.dart';
 import 'package:intl/intl.dart';
+import 'package:spaceodyssey/screen/stats.dart';
 import 'package:yahoofin/yahoofin.dart';
 
 List<String> stockList = ["amzn", "googl", "aapl", "msft", "tsla"];
@@ -136,7 +137,14 @@ class _HomeState extends State<Home> {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Stat(stocksym: stockDetailsList[index].ticker),
+                    ),
+                  );
+                },
                 child: Container(
                   color: Colors.white,
                   child: Padding(
