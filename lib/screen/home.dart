@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:spaceodyssey/screen/stats.dart';
 import 'package:yahoofin/yahoofin.dart';
 
-List<String> stockList = ["amzn", "googl", "aapl", "msft", "tsla"];
+List<String> stockList = ["amzn", "meta", "googl", "msft", "tsla"];
 
 var yfin = YahooFin();
 var stockInfo;
