@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "551671188266",
+    "project_id": "spaceodyssey-82a4d",
+    "storage_bucket": "spaceodyssey-82a4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551671188266:android:057209d6eb4f894339ac53",
+        "android_client_info": {
+          "package_name": "com.example.spaceodyssey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551671188266-o578njmuorevub2ruo3hru57qhckl1nd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0ijllQzaUYxlM60WMVTnjYCWScnu9fi0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551671188266-o578njmuorevub2ruo3hru57qhckl1nd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

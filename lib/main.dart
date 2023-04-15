@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:spaceodyssey/screen/home.dart';
 import 'package:spaceodyssey/screen/loginpage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() => runApp(MyApp());
+void main() => {
+  _initializeFirebase(),
+  runApp(MyApp())};
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
@@ -19,6 +23,14 @@ class MyApp extends StatelessWidget {
       home: LoginPage(),
     );
   }
+}
+
+
+
+_initializeFirebase() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
 }
 
 //liquid swipe
