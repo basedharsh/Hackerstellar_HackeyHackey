@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
             child: Container(
               // padding: EdgeInsets.only(top: 56, ),
               width: double.infinity,
-              height: mq.height * 0.3,
+              height: mq.height * 0.34,
               decoration: BoxDecoration(color: Colors.teal),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,

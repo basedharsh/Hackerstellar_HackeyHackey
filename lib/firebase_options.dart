@@ -70,7 +70,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '551671188266',
     projectId: 'spaceodyssey-82a4d',
     storageBucket: 'spaceodyssey-82a4d.appspot.com',
-    iosClientId: '551671188266-kpfpeeraubvhprf1ln1aa1i9kcspngd9.apps.googleusercontent.com',
+    iosClientId:
+        '551671188266-kpfpeeraubvhprf1ln1aa1i9kcspngd9.apps.googleusercontent.com',
     iosBundleId: 'com.example.spaceodyssey',
   );
 }
