@@ -1,15 +1,28 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:spaceodyssey/widgets/PortfolioTile.dart';
+import 'package:yahoofin/yahoofin.dart';
 
 final db = FirebaseFirestore.instance;
-var userOrderDetails;
+var yfin = YahooFin();
+var stockInfo;
+var stockDetails;
+var userData;
 var currentUser;
+var userOrderDetails;
 
 void userOrderDetailsDatabase()async{
   await db.collection("stockOrder").get().then((event) {
     userOrderDetails = event.docs;
+    print(userOrderDetails);
   });
+
+  currentUser = await FirebaseAuth.instance.currentUser;
+  await db.collection("users").doc(currentUser.uid).get().then((event) {
+    userData = event;
+  });
+
 }
 
 class Portfolio extends StatefulWidget {
@@ -59,22 +72,13 @@ class _PortfolioState extends State<Portfolio> {
                   ],
                 ),
               ),
-              // PortfolioTile(),
-              // PortfolioTile(),
-              // PortfolioTile(),
-              // PortfolioTile(),
-              // PortfolioTile(),
-              // PortfolioTile(),
-              // PortfolioTile(),
-              // PortfolioTile(),
-              // PortfolioTile(),
               Column(
                 children: List.generate((userOrderDetails!=null)?userOrderDetails.length:0, (index) {
                   return Column(
                     children: [
                       Container(
                         padding: EdgeInsets.all(20),
-                        height: 100,
+                        height: 120,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -84,29 +88,69 @@ class _PortfolioState extends State<Portfolio> {
                               children: [
                                 Row(
                                   children: [
-                                    Container(
-                                      color: Colors.blue,
-                                      padding: EdgeInsets.all(5),
-                                      child: Text(
-                                        'Buy',
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ),
+                                    // Container(
+                                    //   color: Colors.blue,
+                                    //   padding: EdgeInsets.all(5),
+                                    //   child: Text(
+                                    //     'Buy',
+                                    //     style: TextStyle(color: Colors.white),
+                                    //   ),
+                                    // ),
                                     SizedBox(
                                       width: 4.5,
                                     ),
                                     Text(
-                                      userOrderDetails[index].data()["ticker"],
+                                      (userOrderDetails!=null)?userOrderDetails[index].data()["ticker"]:"",
                                       style: TextStyle(
                                           fontSize: 19, fontWeight: FontWeight.w600),
                                     ),
                                   ],
                                 ),
                                 Text(
-                                  'Bought Price : '+userOrderDetails[index].data()["currentprice"],
+                                  'Bought Price : ' + userOrderDetails[index].data()["currentprice"],
                                   style: TextStyle(color: Colors.grey),
                                 ),
-                                Text("ESG Score : "+userOrderDetails[index].data()["ESGscore"])
+                                SizedBox(height: 10),
+                                GestureDetector(
+                                  onTap: ()async{
+
+                                    stockInfo = await yfin.getStockInfo(ticker: userOrderDetails[index].data()["ticker"]);
+                                    await stockInfo.getStockData().then((value) {
+                                      stockDetails = value;
+                                    });
+
+                                    var buyprice = userOrderDetails[index].data()["currentprice"];
+                                    var currprice = stockDetails.currentPrice;
+
+                                    await db.collection("users").doc(currentUser.uid).update({
+                                      "currentCredit": (int.parse(userData.data()["currentCredit"].replaceAll(RegExp(r'[^0-9]'),'')) + stockDetails.currentPrice*int.parse(userOrderDetails[index].data()["ammount"])).toString()}).onError((e, _) => print("Error In Updating Order: $e"));
+                                    
+                                    await db.collection("stockOrder").doc(userOrderDetails[index].id).delete();
+
+                                    var prolos = int.parse(buyprice) - currprice;
+
+                                    // ScaffoldMessenger.of(context)
+                                    //     .showSnackBar(SnackBar(
+                                    //     content: Text(
+                                    //         (int.parse(buyprice) - currprice).toString()
+                                    //     )));
+                                    print(prolos);
+
+                                  },
+                                  child: Container(
+                                    height: 30,
+                                    width: 80,
+                                    color: Colors.blue,
+                                    padding: EdgeInsets.all(5),
+                                    child: Center(
+                                      child: Text(
+                                        'Sell',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                //Text("ESG Score : "+userOrderDetails[index].data()["ESGscore"])
                               ],
                             ),
                             Column(
