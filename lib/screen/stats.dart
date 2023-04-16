@@ -51,7 +51,9 @@ void getGraphData() async {
       interval: StockInterval.oneDay, period: StockRange.oneMonth);
   //print(graphData.chartQuotes.high);
 
-  _chartData = List.generate((graphData!=null)?graphData.chartQuotes?.timestamp.length:0, (index) {
+  _chartData = List.generate(
+      (graphData != null) ? graphData.chartQuotes?.timestamp.length : 0,
+      (index) {
     return ChartSampleData(
         x: DateTime(
             int.parse(DateTime.fromMicrosecondsSinceEpoch(

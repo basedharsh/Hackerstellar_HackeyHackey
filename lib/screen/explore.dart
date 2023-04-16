@@ -285,6 +285,160 @@ class _ExploreState extends State<Explore> {
                 ),
               ),
             ),
+            Container(
+              alignment: Alignment.topLeft,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(0),
+                    bottomRight: Radius.circular(0)),
+                color: Color.fromARGB(255, 19, 26, 71),
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+                child: Text(
+                  'Trending Blogs',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 19),
+                ),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.shade300, //New
+                      blurRadius: 10.0,
+                      offset: Offset(0, 0))
+                ],
+              ),
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Image.asset('images/blog1.jpg'),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'ESG: Hearing the signal above the noise',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Text(
+                    'In our view, the best opportunities lie not at the extremes of ESG rhetoric, but at the heart of sustainability substance',
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      const url4 =
+                          'https://www.putnam.com/individual/content/perspectives/9407-esg-hearing-the-signal-above-the-noise-2';
+                      launchUrlString(url4 as String);
+                    },
+                    child: Text(
+                      'Know More',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.shade300, //New
+                      blurRadius: 10.0,
+                      offset: Offset(0, 0))
+                ],
+              ),
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Image.asset('images/blog2.jpg'),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'What is the circular economy, and why is it important?',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Text(
+                    'Adapting business models to be less resource intensive creates opportunity for environmental and economic benefit.',
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      const url4 =
+                          'https://www.putnam.com/individual/content/perspectives/9361-what-is-the-circular-economy-and-why-is-it-important';
+                      launchUrlString(url4 as String);
+                    },
+                    child: Text(
+                      'Know More',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.shade300, //New
+                      blurRadius: 10.0,
+                      offset: Offset(0, 0))
+                ],
+              ),
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Image.asset('images/blog3.jpg'),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'Engaging with allies to advance sustainable investing',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Text(
+                    'We collaborate with institutions to examine and understand the financial impacts of sustainability.',
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      const url4 =
+                          'https://www.putnam.com/individual/content/perspectives/7372-engaging-with-allies-to-advance-sustainable-investing';
+                      launchUrlString(url4 as String);
+                    },
+                    child: Text(
+                      'Know More',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
