@@ -18,12 +18,6 @@ void getDataFromDatabase() async {
   });
 }
 
-// class user extends StatefulWidget {
-//   const user({super.key});
-
-//   @override
-//   State<user> createState() => _userState();
-// }
 
 class User extends StatefulWidget {
   const User({super.key});
@@ -78,19 +72,19 @@ class _UserState extends State<User> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Manan Kabra',
+                          (userData != null) ? userData.data()["username"] : "Loading...",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 28,
                               fontWeight: FontWeight.w500),
                         ),
-                        Text((userData != null)
+                        Text((userData != null && userData.data() != null && userData.data()["ESGcredits"] != null)
                             ? "ESGscore : " + userData.data()["ESGcredits"]
                             : ""),
-                        Text((userData != null)
-                            ? "TotalCredits : " +
-                                userData.data()["currentCredit"]
+                        Text((userData != null && userData.data() != null && userData.data()["currentCredit"] != null)
+                            ? "TotalCredits : " + userData.data()["currentCredit"]
                             : "")
+
                       ],
                     ),
                     Image.asset(
