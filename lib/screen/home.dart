@@ -150,62 +150,66 @@ class _HomeState extends State<Home> {
                       ),
                     );
                   },
-                  child: Container(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            (stockDetailsList[index] != null)
-                                ? stockDetailsList[index].metaData?.longName
-                                : "----",
-                            style: TextStyle(
-                                fontSize: 21, fontWeight: FontWeight.w600),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            textBaseline: TextBaseline.alphabetic,
-                            children: [
-                              Row(
-                                // mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    (stockDetailsList[index] != null)
-                                        ? stockDetailsList[index]
-                                            .dayHigh
-                                            .toString()
-                                        : "----",
-                                    style: TextStyle(
-                                        color: Colors.green, fontSize: 20),
-                                  ),
-                                  SizedBox(width: 10),
-                                  Text(
-                                    (stockDetailsList[index] != null)
-                                        ? stockDetailsList[index]
-                                            .dayLow
-                                            .toString()
-                                        : "----",
-                                    style: TextStyle(
-                                        color: Colors.red, fontSize: 20),
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                (stockDetailsList[index] != null)
-                                    ? stockDetailsList[index]
-                                            .regularMarketChange
-                                            .toStringAsFixed(3)
-                                            .toString() +
-                                        "%"
-                                    : "----",
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                        ],
+                  child: Card(
+                    elevation: 10,
+                    child: Container(
+                      color: Color.fromARGB(255, 255, 242, 242),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              (stockDetailsList[index] != null)
+                                  ? stockDetailsList[index].metaData?.longName
+                                  : "----",
+                              style: TextStyle(
+                                  fontSize: 21, fontWeight: FontWeight.w600),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              textBaseline: TextBaseline.alphabetic,
+                              children: [
+                                Row(
+                                  // mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      (stockDetailsList[index] != null)
+                                          ? stockDetailsList[index]
+                                              .dayHigh
+                                              .toString()
+                                          : "----",
+                                      style: TextStyle(
+                                          color: Colors.green, fontSize: 20),
+                                    ),
+                                    SizedBox(width: 10),
+                                    Text(
+                                      (stockDetailsList[index] != null)
+                                          ? stockDetailsList[index]
+                                              .dayLow
+                                              .toString()
+                                          : "----",
+                                      style: TextStyle(
+                                          color: Colors.red, fontSize: 20),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  (stockDetailsList[index] != null)
+                                      ? stockDetailsList[index]
+                                              .regularMarketChange
+                                              .toStringAsFixed(3)
+                                              .toString() +
+                                          "%"
+                                      : "----",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
