@@ -61,154 +61,159 @@ class _HomeState extends State<Home> {
     var mq = MediaQuery.of(context).size;
 
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/space.gif"), fit: BoxFit.fitWidth),
+      child: Container(
+        //background color
+        color: Colors.grey.shade200,
+        child: Column(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("images/space.gif"),
+                    fit: BoxFit.fitWidth),
+              ),
+              height: 40,
+              width: double.infinity,
             ),
-            height: 40,
-            width: double.infinity,
-          ),
-          Container(
-            // padding: EdgeInsets.only(top: 56, ),
-            width: double.infinity,
-            height: mq.height * 0.35,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/space.gif"), fit: BoxFit.cover),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  'Top Movers',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Searchstock()),
-                    );
-                  },
-                  child: Positioned(
-                    child: Container(
-                      width: 300,
-                      margin: EdgeInsets.only(top: 193),
-                      padding: EdgeInsets.all(10),
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 20.0,
-                          ),
-                        ],
-                      ),
-                      child: Text(
-                        'Search Stocks eg. Zomato , Kodak',
-                        style: TextStyle(color: Colors.grey.shade600),
-                      ),
-                    ),
+            Container(
+              // padding: EdgeInsets.only(top: 56, ),
+              width: double.infinity,
+              height: mq.height * 0.35,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("images/space.gif"), fit: BoxFit.cover),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Top Movers',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(
-              'Trending Stocks',
-              style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black),
-            ),
-          ),
-          Column(
-              children: List.generate(
-                  (stockDetailsList != null) ? stockDetailsList.length : 0,
-                  (index) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          Stat(stocksym: stockDetailsList[index].ticker),
-                    ),
-                  );
-                },
-                child: Container(
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          (stockDetailsList[index] != null)
-                              ? stockDetailsList[index].metaData?.longName
-                              : "----",
-                          style: TextStyle(
-                              fontSize: 21, fontWeight: FontWeight.w600),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          textBaseline: TextBaseline.alphabetic,
-                          children: [
-                            Row(
-                              // mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  (stockDetailsList[index] != null)
-                                      ? stockDetailsList[index]
-                                          .dayHigh
-                                          .toString()
-                                      : "----",
-                                  style: TextStyle(
-                                      color: Colors.green, fontSize: 20),
-                                ),
-                                SizedBox(width: 10),
-                                Text(
-                                  (stockDetailsList[index] != null)
-                                      ? stockDetailsList[index]
-                                          .dayLow
-                                          .toString()
-                                      : "----",
-                                  style: TextStyle(
-                                      color: Colors.red, fontSize: 20),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              (stockDetailsList[index] != null)
-                                  ? stockDetailsList[index]
-                                          .regularMarketChange
-                                          .toStringAsFixed(3)
-                                          .toString() +
-                                      "%"
-                                  : "----",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w400),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Searchstock()),
+                      );
+                    },
+                    child: Positioned(
+                      child: Container(
+                        width: 300,
+                        margin: EdgeInsets.only(top: 193),
+                        padding: EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 20.0,
                             ),
                           ],
                         ),
-                      ],
+                        child: Text(
+                          'Search Stocks eg. Zomato , Kodak',
+                          style: TextStyle(color: Colors.grey.shade600),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                'Trending Stocks',
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black),
+              ),
+            ),
+            Column(
+                children: List.generate(
+                    (stockDetailsList != null) ? stockDetailsList.length : 0,
+                    (index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            Stat(stocksym: stockDetailsList[index].ticker),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            (stockDetailsList[index] != null)
+                                ? stockDetailsList[index].metaData?.longName
+                                : "----",
+                            style: TextStyle(
+                                fontSize: 21, fontWeight: FontWeight.w600),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            textBaseline: TextBaseline.alphabetic,
+                            children: [
+                              Row(
+                                // mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    (stockDetailsList[index] != null)
+                                        ? stockDetailsList[index]
+                                            .dayHigh
+                                            .toString()
+                                        : "----",
+                                    style: TextStyle(
+                                        color: Colors.green, fontSize: 20),
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    (stockDetailsList[index] != null)
+                                        ? stockDetailsList[index]
+                                            .dayLow
+                                            .toString()
+                                        : "----",
+                                    style: TextStyle(
+                                        color: Colors.red, fontSize: 20),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                (stockDetailsList[index] != null)
+                                    ? stockDetailsList[index]
+                                            .regularMarketChange
+                                            .toStringAsFixed(3)
+                                            .toString() +
+                                        "%"
+                                    : "----",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w400),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            );
-          })),
-        ],
+              );
+            })),
+          ],
+        ),
       ),
     );
   }
