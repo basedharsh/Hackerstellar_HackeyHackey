@@ -14,11 +14,21 @@ class _NewsTileState extends State<NewsTile> {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         width: double.infinity,
-        color: Colors.orange,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+          end: Alignment.bottomRight,
+          colors: [
+            Color.fromARGB(255, 19, 26, 71),
+            Color.fromARGB(255, 19, 26, 71),
+            Color.fromARGB(255, 129, 123, 119),
+          ],
+        )),
         padding: EdgeInsets.all(40),
         child: Text(
           'Hello',
           textAlign: TextAlign.center,
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.w500, fontSize: 19),
         ),
       ),
     );
