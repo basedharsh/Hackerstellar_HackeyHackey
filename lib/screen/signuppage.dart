@@ -57,7 +57,7 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       // backgroundColor: Color.fromARGB(255, 0, 0, 0),
       // catch bg color from main.dart
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: Color.fromARGB(255, 33, 33, 33),
       body: SafeArea(
         child: GestureDetector(
           onTap: () {

@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: Color.fromARGB(255, 56, 53, 53),
       body: SafeArea(
         //on screen tap keyboard will be closed
         child: GestureDetector(
@@ -73,10 +73,10 @@ class _MyAppState extends State<MyApp> {
               children: [
                 SizedBox(height: 20),
                 Text(
-                  "Space Odyssey trading",
+                  "Terra-Invest",
                   style: GoogleFonts.lobster(
                     textStyle: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: Color.fromARGB(255, 245, 241, 241),
                       fontSize: 30,
                       fontWeight: FontWeight.w700,
                       fontStyle: FontStyle.italic,
@@ -96,7 +96,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 // artboard for animation here
-
                 Container(
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 0, 0, 0),
