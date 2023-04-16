@@ -180,9 +180,12 @@ class _ExploreState extends State<Explore> {
             NewsTile(),
             NewsTile(),
             NewsTile(),
+            NewsTile(),
           ],
         ),
       ),
     );
   }
 }
+
+
