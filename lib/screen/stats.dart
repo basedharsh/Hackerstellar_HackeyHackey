@@ -9,6 +9,26 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 final db = FirebaseFirestore.instance;
 
+final ESGratingList = <String, dynamic>{
+  //Top usa stock companies and there Esg score
+
+  "NVDA": "10",
+  "MSFT": "10",
+  "BBY": "10",
+  "ADBE": "10",
+  "POOL": "10",
+  "LIN": "10",
+  "ACN": "10",
+  "POOL": "8",
+  "CRM": "8",
+  "CDNS": "8",
+  "INTU": "8",
+  "IDXX": "8",
+  "LRCX": "8",
+  "AMZN": "4",
+};
+
+
 var yfin = YahooFin();
 String stockSymbol = "";
 var graphData;
@@ -81,11 +101,14 @@ void getGraphData() async {
         close: graphData.chartQuotes?.close[index]);
   });
 
-  print(_chartData);
+  //print(_chartData);
+
+  //print(ESGratingList[stockDetails.ticker.toString().toUpperCase()]);
+
 }
 
 class Stat extends StatefulWidget {
-  String stocksym;
+  String stocksym = "";
 
   Stat({required this.stocksym}) {
     stockSymbol = this.stocksym;
@@ -160,7 +183,7 @@ class _StatState extends State<Stat> {
                 trackballBehavior: _trackballBehavior,
                 series: <CandleSeries>[
                   CandleSeries<ChartSampleData, DateTime>(
-                      dataSource: _chartData,
+                      dataSource: (_chartData!=null)?_chartData:[ChartSampleData(),ChartSampleData()],
                       name: 'AAPL',
                       xValueMapper: (ChartSampleData sales, _) => sales.x,
                       lowValueMapper: (ChartSampleData sales, _) => sales.low,
@@ -190,6 +213,19 @@ class _StatState extends State<Stat> {
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w500),
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(10),
+                height: 80,
+                decoration: BoxDecoration(color: Colors.white),
+                child: Text(
+                  (stockDetails != null)
+                      ? "ESG Rating : " +
+                      ESGratingList[stockDetails.ticker.toString().toUpperCase()]
+                      : "",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
               ),
               Container(
