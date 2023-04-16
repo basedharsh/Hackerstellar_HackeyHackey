@@ -106,6 +106,7 @@ class _PortfolioState extends State<Portfolio> {
                                   'Bought Price : '+userOrderDetails[index].data()["currentprice"],
                                   style: TextStyle(color: Colors.grey),
                                 ),
+                                Text("ESG Score : "+userOrderDetails[index].data()["ESGscore"])
                               ],
                             ),
                             Column(

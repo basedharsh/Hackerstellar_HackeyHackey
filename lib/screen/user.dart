@@ -1,7 +1,24 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:spaceodyssey/screen/loginpage.dart';
 
+
 import '../widgets/UserTile.dart';
+
+final db = FirebaseFirestore.instance;
+
+var userData;
+var currentUser;
+
+void getDataFromDatabase()async{
+  
+  currentUser = await FirebaseAuth.instance.currentUser;
+  await db.collection("users").doc(currentUser.uid).get().then((event) {
+    userData = event;
+  });
+}
 
 // class user extends StatefulWidget {
 //   const user({super.key});
@@ -18,6 +35,14 @@ class User extends StatefulWidget {
 }
 
 class _UserState extends State<User> {
+  @override
+  void initState(){
+    setState(() {
+      getDataFromDatabase();
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,12 +76,20 @@ class _UserState extends State<User> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Personal Stats',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 28,
-                          fontWeight: FontWeight.w500),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Personal Stats',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 28,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Text((userData!=null)?"ESGscore : "+userData.data()["ESGcredits"]:""),
+                        Text((userData!=null)?"TotalCredits : "+userData.data()["currentCredit"]:"")
+                        
+                      ],
                     ),
                     Image.asset(
                       'images/admin.gif',
