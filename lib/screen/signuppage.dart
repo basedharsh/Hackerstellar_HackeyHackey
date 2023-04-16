@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 10),
+                  SizedBox(height: 9),
                   // Container(
                   //   height: 120,
                   //   width: 120,
