@@ -58,6 +58,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+
     var mq = MediaQuery.of(context).size;
 
     return SingleChildScrollView(
@@ -67,7 +68,7 @@ class _HomeState extends State<Home> {
            decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/space.gif"), fit: BoxFit.fitWidth),
-            ), 
+            ),
             height: 40,
             width: double.infinity,
           ),
