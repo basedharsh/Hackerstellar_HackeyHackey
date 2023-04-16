@@ -57,7 +57,7 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       // backgroundColor: Color.fromARGB(255, 0, 0, 0),
       // catch bg color from main.dart
-      backgroundColor: Colors.deepPurple.shade200,
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       body: SafeArea(
         child: GestureDetector(
           onTap: () {
@@ -96,7 +96,7 @@ class _MyAppState extends State<MyApp> {
                     "Space Odyssey App",
                     style: GoogleFonts.autourOne(
                       textStyle: TextStyle(
-                        color: Color.fromARGB(255, 91, 0, 249),
+                        color: Color.fromARGB(255, 171, 165, 180),
                         fontSize: 12,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.italic,
@@ -105,7 +105,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.deepPurple.shade200,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     height: 0.28 * size.height,
@@ -139,7 +139,7 @@ class _MyAppState extends State<MyApp> {
                     margin: EdgeInsets.only(left: 14, right: 14),
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 221, 208, 245),
+                      color: Color.fromARGB(255, 207, 205, 214),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Column(children: [
@@ -270,27 +270,29 @@ class _MyAppState extends State<MyApp> {
                       ),
                       SizedBox(height: 20),
 
-                      (signupAuth.loading == false)?MaterialButton(
-                        onPressed: () {
-                          signupAuth.signupValidation(
-                              username: username,
-                              emailAddress: emailAddress,
-                              password: password,
-                              context: context
-                          );
-                        },
-                        hoverColor: Color.fromARGB(255, 206, 7, 0),
-                        child: Text(
-                          "Sign Up",
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        ),
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ):Center(
-                          child: CircularProgressIndicator(),
-                        ),
+                      (signupAuth.loading == false)
+                          ? MaterialButton(
+                              onPressed: () {
+                                signupAuth.signupValidation(
+                                    username: username,
+                                    emailAddress: emailAddress,
+                                    password: password,
+                                    context: context);
+                              },
+                              hoverColor: Color.fromARGB(255, 206, 7, 0),
+                              child: Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            )
+                          : Center(
+                              child: CircularProgressIndicator(),
+                            ),
                       SizedBox(height: 20),
                       Divider(
                         color: Color.fromARGB(255, 34, 33, 33),

@@ -52,17 +52,24 @@ class _ExploreState extends State<Explore> {
     var mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Chatbotsupport(),
-            ),
-          );
-        },
-        child: Icon(Icons.chat_bubble),
-        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      floatingActionButton: Container(
+        height: 100,
+        width: 70,
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Chatbotsupport(),
+              ),
+            );
+          },
+          child: Icon(
+            Icons.chat_bubble,
+            size: 30,
+          ),
+          backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
