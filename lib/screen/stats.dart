@@ -34,7 +34,6 @@ final stockOrderDetails = <String, dynamic>{
 TextEditingController ammount = TextEditingController();
 
 void getGraphData() async {
-
   currentUser = FirebaseAuth.instance.currentUser;
 
   await db.collection("users").doc(currentUser.uid).get().then((event) {
@@ -324,39 +323,45 @@ class _StatState extends State<Stat> {
               ),
               TextFormField(
                 controller: ammount,
-                  decoration: InputDecoration(
-                      hintText: 'Ammount'
-                  ),
+                decoration: InputDecoration(
+                    hintText: 'Ammount', border: OutlineInputBorder()),
               ),
               MaterialButton(
-                  onPressed: (){
-                    stockOrderDetails["ammount"] = ammount.text;
-                    stockOrderDetails["totalprice"] = (int.parse(ammount.text)*stockDetails.currentPrice).toString();
-                    stockOrderDetails["currentprice"] = stockDetails.currentPrice.toString();
-                    stockOrderDetails["dayhigh"] = stockDetails.dayHigh.toString();
-                    stockOrderDetails["daylow"] = stockDetails.dayLow.toString();
-                    stockOrderDetails["ticker"] = stockDetails.ticker.toString();
-                    stockOrderDetails["buyerid"] = currentUser.uid;
+                onPressed: () {
+                  stockOrderDetails["ammount"] = ammount.text;
+                  stockOrderDetails["totalprice"] =
+                      (int.parse(ammount.text) * stockDetails.currentPrice)
+                          .toString();
+                  stockOrderDetails["currentprice"] =
+                      stockDetails.currentPrice.toString();
+                  stockOrderDetails["dayhigh"] =
+                      stockDetails.dayHigh.toString();
+                  stockOrderDetails["daylow"] = stockDetails.dayLow.toString();
+                  stockOrderDetails["ticker"] = stockDetails.ticker.toString();
+                  stockOrderDetails["buyerid"] = currentUser.uid;
 
-                    db
-                        .collection('stockOrder')
-                        .doc(uuid.v1())
-                        .set(stockOrderDetails)
-                        .onError(
-                            (e, _) => print("Error In Placing Order: $e"));
-                    
-                    db
-                        .collection("users")
-                        .doc(currentUser.uid)
-                        .update({"currentCredit":(int.parse(userData.data()["currentCredit"]) - (int.parse(ammount.text)*stockDetails.currentPrice)).toString()})
-                        .onError(
-                            (e, _) => print("Error In Updating Order: $e"));
-                    //print(userData.data()["currentCredit"]);
-                  },
-                  child: Text("BUY",style: TextStyle(color: Colors.white)),
+                  db
+                      .collection('stockOrder')
+                      .doc(uuid.v1())
+                      .set(stockOrderDetails)
+                      .onError((e, _) => print("Error In Placing Order: $e"));
+
+                  db.collection("users").doc(currentUser.uid).update({
+                    "currentCredit":
+                        (int.parse(userData.data()["currentCredit"]) -
+                                (int.parse(ammount.text) *
+                                    stockDetails.currentPrice))
+                            .toString()
+                  }).onError((e, _) => print("Error In Updating Order: $e"));
+                  //print(userData.data()["currentCredit"]);
+                },
+                child: Text("BUY", style: TextStyle(color: Colors.white)),
                 color: Colors.black87,
                 minWidth: double.infinity,
                 height: 50,
+              ),
+              SizedBox(
+                height: 30,
               )
             ],
           ),

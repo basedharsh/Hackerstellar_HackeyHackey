@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.deepPurple.shade200,
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       body: SafeArea(
         //on screen tap keyboard will be closed
         child: GestureDetector(
@@ -85,10 +85,10 @@ class _MyAppState extends State<MyApp> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  "Welcome to Space Odyssey",
+                  "Welcome to Tera-Invest",
                   style: GoogleFonts.autourOne(
                     textStyle: TextStyle(
-                      color: Color.fromARGB(255, 93, 0, 255),
+                      color: Color.fromARGB(255, 242, 234, 255),
                       fontSize: 12,
                       fontWeight: FontWeight.w700,
                       fontStyle: FontStyle.italic,
@@ -99,7 +99,7 @@ class _MyAppState extends State<MyApp> {
 
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade200,
+                    color: Color.fromARGB(255, 0, 0, 0),
                     borderRadius: BorderRadius.circular(30),
                   ),
                   height: 0.3 * size.height,
@@ -134,7 +134,7 @@ class _MyAppState extends State<MyApp> {
                   margin: EdgeInsets.only(left: 20, right: 20),
                   width: 0.96 * size.width,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 221, 208, 245),
+                    color: Color.fromARGB(255, 190, 190, 199),
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Column(

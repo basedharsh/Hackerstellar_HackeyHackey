@@ -78,7 +78,7 @@ class _UserState extends State<User> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Personal Stats',
+                          'Manan Kabra',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 28,
