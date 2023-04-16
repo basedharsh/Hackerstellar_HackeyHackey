@@ -69,7 +69,7 @@ class _PortfolioState extends State<Portfolio> {
               // PortfolioTile(),
               // PortfolioTile(),
               Column(
-                children: List.generate(userOrderDetails.length, (index) {
+                children: List.generate((userOrderDetails!=null)?userOrderDetails.length:0, (index) {
                   return Column(
                     children: [
                       Container(
