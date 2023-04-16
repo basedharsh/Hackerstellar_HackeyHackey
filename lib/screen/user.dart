@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/UserTile.dart';
+
 // class user extends StatefulWidget {
 //   const user({super.key});
 
@@ -15,89 +17,89 @@ class User extends StatefulWidget {
 }
 
 class _UserState extends State<User> {
-  var arrColor = [
-    Colors.red,
-    Colors.blue,
-    Colors.green,
-    Colors.orange,
-    Colors.pink,
-    Colors.brown,
-    Colors.grey,
-    Colors.lightGreen,
-    Colors.purple,
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            height: 200,
-            width: double.infinity,
-            decoration: BoxDecoration(
-                color: Colors.teal,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30))),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Personal Stats',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 28,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  Image.asset(
-                    'images/admin.gif',
-                    height: 52,
-                    color: Colors.white,
-                  ),
-                  // Container(
-                  //   decoration: BoxDecoration(
-                  //     boxShadow: [
-                  //       BoxShadow(
-                  //           offset: const Offset(12, 26),
-                  //           blurRadius: 50,
-                  //           spreadRadius: 0,
-                  //           color: Colors.grey.withOpacity(.25)),
-                  //     ],
-                  //     borderRadius: BorderRadius.circular(15),
-                  //   ),
-                  //   child: const CircleAvatar(
-                  //     radius: 20,
-                  //     backgroundColor: Colors.white,
-                  //     child: Icon(
-                  //       Icons.person,
-                  //       size: 25,
-                  //       color: Colors.teal,
-                  //     ),
-                  //   ),
-                  // )
-                ],
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.teal,
+        onPressed: () {},
+        child: Icon(
+          Icons.logout,
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 200,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  color: Colors.teal,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30))),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Personal Stats',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    Image.asset(
+                      'images/admin.gif',
+                      height: 52,
+                      color: Colors.white,
+                    ),
+                    // Container(
+                    //   decoration: BoxDecoration(
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //           offset: const Offset(12, 26),
+                    //           blurRadius: 50,
+                    //           spreadRadius: 0,
+                    //           color: Colors.grey.withOpacity(.25)),
+                    //     ],
+                    //     borderRadius: BorderRadius.circular(15),
+                    //   ),
+                    //   child: const CircleAvatar(
+                    //     radius: 20,
+                    //     backgroundColor: Colors.white,
+                    //     child: Icon(
+                    //       Icons.person,
+                    //       size: 25,
+                    //       color: Colors.teal,
+                    //     ),
+                    //   ),
+                    // )
+                  ],
+                ),
               ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.all(20),
-            decoration: BoxDecoration(color: Colors.blueAccent),
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-              child: Text(
-                'Stay up to date with your Stats',
-                style: TextStyle(color: Colors.white, fontSize: 21),
+            Container(
+              margin: EdgeInsets.all(20),
+              decoration: BoxDecoration(color: Colors.blueAccent),
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: Text(
+                  'Stay up to date with your Stats',
+                  style: TextStyle(color: Colors.white, fontSize: 21),
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          
-        ],
+            SizedBox(
+              height: 40,
+            ),
+            UserTile(), //name
+            UserTile(), //email
+            UserTile(), //amount of companies invested in
+            UserTile(), //Profit
+          ],
+        ),
       ),
     );
   }
