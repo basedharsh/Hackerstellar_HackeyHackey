@@ -1,8 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yahoofin/yahoofin.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
+final db = FirebaseFirestore.instance;
 
 var yfin = YahooFin();
 String stockSymbol = "";
@@ -12,7 +17,30 @@ var _chartData;
 var stockInfo;
 var stockDetails;
 
+var uuid = Uuid();
+var currentUser;
+var userData;
+
+final stockOrderDetails = <String, dynamic>{
+  "ammount": "",
+  "totalprice": "",
+  "currentprice": "",
+  "dayhigh": "",
+  "daylow": "",
+  "ticker": "",
+  "buyerid": ""
+};
+
+TextEditingController ammount = TextEditingController();
+
 void getGraphData() async {
+
+  currentUser = FirebaseAuth.instance.currentUser;
+
+  await db.collection("users").doc(currentUser.uid).get().then((event) {
+    userData = event;
+  });
+
   stockInfo = await yfin.getStockInfo(ticker: stockSymbol);
   await stockInfo.getStockData().then((value) {
     stockDetails = value;
@@ -294,6 +322,42 @@ class _StatState extends State<Stat> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
               ),
+              TextFormField(
+                controller: ammount,
+                  decoration: InputDecoration(
+                      hintText: 'Ammount'
+                  ),
+              ),
+              MaterialButton(
+                  onPressed: (){
+                    stockOrderDetails["ammount"] = ammount.text;
+                    stockOrderDetails["totalprice"] = (int.parse(ammount.text)*stockDetails.currentPrice).toString();
+                    stockOrderDetails["currentprice"] = stockDetails.currentPrice.toString();
+                    stockOrderDetails["dayhigh"] = stockDetails.dayHigh.toString();
+                    stockOrderDetails["daylow"] = stockDetails.dayLow.toString();
+                    stockOrderDetails["ticker"] = stockDetails.ticker.toString();
+                    stockOrderDetails["buyerid"] = currentUser.uid;
+
+                    db
+                        .collection('stockOrder')
+                        .doc(uuid.v1())
+                        .set(stockOrderDetails)
+                        .onError(
+                            (e, _) => print("Error In Placing Order: $e"));
+                    
+                    db
+                        .collection("users")
+                        .doc(currentUser.uid)
+                        .update({"currentCredit":(int.parse(userData.data()["currentCredit"]) - (int.parse(ammount.text)*stockDetails.currentPrice)).toString()})
+                        .onError(
+                            (e, _) => print("Error In Updating Order: $e"));
+                    //print(userData.data()["currentCredit"]);
+                  },
+                  child: Text("BUY",style: TextStyle(color: Colors.white)),
+                color: Colors.black87,
+                minWidth: double.infinity,
+                height: 50,
+              )
             ],
           ),
         ),
