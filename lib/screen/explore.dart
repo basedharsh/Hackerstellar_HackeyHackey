@@ -51,7 +51,7 @@ class _ExploreState extends State<Explore> {
   Widget build(BuildContext context) {
     var mq = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey.shade100,
       floatingActionButton: Container(
         height: 100,
         width: 70,
@@ -199,22 +199,21 @@ class _ExploreState extends State<Explore> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(20.0),
               child: Container(
-                width: double.infinity,
+                height: 210,
+                width: 400,
                 decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey, //New
+                        blurRadius: 25.0,
+                        offset: Offset(0, -10))
+                  ],
                   image: DecorationImage(
                       image: AssetImage('images/vid1.png'), fit: BoxFit.cover),
-                  // gradient: LinearGradient(
-                  //   end: Alignment.bottomRight,
-                  //   colors: [
-                  //     Color.fromARGB(255, 19, 26, 71),
-                  //     Color.fromARGB(255, 19, 26, 71),
-                  //     Color.fromARGB(255, 129, 123, 119),
-                  //   ],
-                  // ),
                 ),
-                padding: EdgeInsets.all(80),
+                padding: EdgeInsets.all(70),
                 child: GestureDetector(
                   onTap: () {
                     const url1 = 'https://youtu.be/weVAN2HxXjk';
@@ -229,20 +228,19 @@ class _ExploreState extends State<Explore> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(20.0),
               child: Container(
-                width: double.infinity,
+                height: 210,
+                width: 400,
                 decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey, //New
+                        blurRadius: 25.0,
+                        offset: Offset(0, -10))
+                  ],
                   image: DecorationImage(
                       image: AssetImage('images/vid2.png'), fit: BoxFit.cover),
-                  // gradient: LinearGradient(
-                  //   end: Alignment.bottomRight,
-                  //   colors: [
-                  //     Color.fromARGB(255, 19, 26, 71),
-                  //     Color.fromARGB(255, 19, 26, 71),
-                  //     Color.fromARGB(255, 129, 123, 119),
-                  //   ],
-                  // ),
                 ),
                 padding: EdgeInsets.all(80),
                 child: GestureDetector(
@@ -259,20 +257,19 @@ class _ExploreState extends State<Explore> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(20.0),
               child: Container(
-                width: double.infinity,
+                height: 210,
+                width: 400,
                 decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey, //New
+                        blurRadius: 25.0,
+                        offset: Offset(0, -10))
+                  ],
                   image: DecorationImage(
                       image: AssetImage('images/vid3.png'), fit: BoxFit.cover),
-                  // gradient: LinearGradient(
-                  //   end: Alignment.bottomRight,
-                  //   colors: [
-                  //     Color.fromARGB(255, 19, 26, 71),
-                  //     Color.fromARGB(255, 19, 26, 71),
-                  //     Color.fromARGB(255, 129, 123, 119),
-                  //   ],
-                  // ),
                 ),
                 padding: EdgeInsets.all(80),
                 child: GestureDetector(
