@@ -5,7 +5,14 @@ import 'package:intl/intl.dart';
 import 'package:spaceodyssey/screen/stats.dart';
 import 'package:yahoofin/yahoofin.dart';
 
-List<String> stockList = ["amzn", "meta", "googl", "msft", "tsla", "bby", ];
+List<String> stockList = [
+  "amzn",
+  "meta",
+  "googl",
+  "msft",
+  "tsla",
+  "bby",
+];
 
 var yfin = YahooFin();
 var stockInfo;
@@ -153,7 +160,10 @@ class _HomeState extends State<Home> {
                   child: Card(
                     elevation: 10,
                     child: Container(
-                      color: Color.fromARGB(255, 255, 242, 242),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(80),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
