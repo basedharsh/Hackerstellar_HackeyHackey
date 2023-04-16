@@ -64,17 +64,17 @@ class _HomeState extends State<Home> {
       child: Column(
         children: [
           Container(
-           decoration: const BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/space.gif"), fit: BoxFit.fitWidth),
-            ), 
+            ),
             height: 40,
             width: double.infinity,
           ),
           Container(
             // padding: EdgeInsets.only(top: 56, ),
             width: double.infinity,
-            height: mq.height * 0.3,
+            height: mq.height * 0.35,
             decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/space.gif"), fit: BoxFit.cover),
@@ -141,7 +141,8 @@ class _HomeState extends State<Home> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Stat(stocksym: stockDetailsList[index].ticker),
+                      builder: (context) =>
+                          Stat(stocksym: stockDetailsList[index].ticker),
                     ),
                   );
                 },
