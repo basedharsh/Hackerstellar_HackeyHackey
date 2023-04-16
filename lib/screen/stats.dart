@@ -132,9 +132,13 @@ class _StatState extends State<Stat> {
             children: [
               Container(
                 width: double.infinity,
-                height: 200,
+                height: 150,
                 decoration: BoxDecoration(
-                  color: Colors.teal.shade400,
+                  image: DecorationImage(
+                      image: AssetImage(
+                        'images/giphy.gif',
+                      ),
+                      fit: BoxFit.cover),
                 ),
                 child: Center(
                   child: Text(
@@ -147,10 +151,10 @@ class _StatState extends State<Stat> {
                 ),
               ),
               SfCartesianChart(
-                backgroundColor: Colors.black,
+                backgroundColor: Color.fromARGB(17, 0, 0, 0),
                 title: ChartTitle(
                   text: 'Graph',
-                  textStyle: TextStyle(color: Colors.white),
+                  textStyle: TextStyle(color: Colors.black),
                 ),
                 legend: Legend(isVisible: true),
                 trackballBehavior: _trackballBehavior,
@@ -181,7 +185,7 @@ class _StatState extends State<Stat> {
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                 decoration: BoxDecoration(color: Colors.black),
                 child: Text(
-                  'Stock States',
+                  'Stock Stats',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
