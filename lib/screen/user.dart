@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'package:spaceodyssey/screen/loginpage.dart';
 
-
 import '../widgets/UserTile.dart';
 
 final db = FirebaseFirestore.instance;
@@ -12,8 +11,7 @@ final db = FirebaseFirestore.instance;
 var userData;
 var currentUser;
 
-void getDataFromDatabase()async{
-  
+void getDataFromDatabase() async {
   currentUser = await FirebaseAuth.instance.currentUser;
   await db.collection("users").doc(currentUser.uid).get().then((event) {
     userData = event;
@@ -36,7 +34,7 @@ class User extends StatefulWidget {
 
 class _UserState extends State<User> {
   @override
-  void initState(){
+  void initState() {
     setState(() {
       getDataFromDatabase();
     });
@@ -86,9 +84,13 @@ class _UserState extends State<User> {
                               fontSize: 28,
                               fontWeight: FontWeight.w500),
                         ),
-                        Text((userData!=null)?"ESGscore : "+userData.data()["ESGcredits"]:""),
-                        Text((userData!=null)?"TotalCredits : "+userData.data()["currentCredit"]:"")
-                        
+                        Text((userData != null)
+                            ? "ESGscore : " + userData.data()["ESGcredits"]
+                            : ""),
+                        Text((userData != null)
+                            ? "TotalCredits : " +
+                                userData.data()["currentCredit"]
+                            : "")
                       ],
                     ),
                     Image.asset(
@@ -135,10 +137,9 @@ class _UserState extends State<User> {
             SizedBox(
               height: 40,
             ),
-            UserTile(), //name
-            UserTile(), //email
-            UserTile(), //amount of companies invested in
-            UserTile(), //Profit
+            UserTile(),
+            //name
+            //Profit
           ],
         ),
       ),

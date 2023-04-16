@@ -183,7 +183,7 @@ class _ExploreState extends State<Explore> {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
                 child: Text(
-                  'More Hot news below ',
+                  'Trending Video Recommendations',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
@@ -191,12 +191,96 @@ class _ExploreState extends State<Explore> {
                 ),
               ),
             ),
-            NewsTile(),
-            NewsTile(),
-            NewsTile(),
-            NewsTile(),
-            NewsTile(),
-            NewsTile(),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('images/vid1.png'), fit: BoxFit.cover),
+                  // gradient: LinearGradient(
+                  //   end: Alignment.bottomRight,
+                  //   colors: [
+                  //     Color.fromARGB(255, 19, 26, 71),
+                  //     Color.fromARGB(255, 19, 26, 71),
+                  //     Color.fromARGB(255, 129, 123, 119),
+                  //   ],
+                  // ),
+                ),
+                padding: EdgeInsets.all(80),
+                child: GestureDetector(
+                  onTap: () {
+                    const url1 = 'https://youtu.be/weVAN2HxXjk';
+                    launchUrlString(url1 as String);
+                  },
+                  child: Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                    size: 70,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('images/vid2.png'), fit: BoxFit.cover),
+                  // gradient: LinearGradient(
+                  //   end: Alignment.bottomRight,
+                  //   colors: [
+                  //     Color.fromARGB(255, 19, 26, 71),
+                  //     Color.fromARGB(255, 19, 26, 71),
+                  //     Color.fromARGB(255, 129, 123, 119),
+                  //   ],
+                  // ),
+                ),
+                padding: EdgeInsets.all(80),
+                child: GestureDetector(
+                  onTap: () {
+                    const url2 = 'https://youtu.be/GAKdQvkgM7U';
+                    launchUrlString(url2 as String);
+                  },
+                  child: Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                    size: 70,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('images/vid3.png'), fit: BoxFit.cover),
+                  // gradient: LinearGradient(
+                  //   end: Alignment.bottomRight,
+                  //   colors: [
+                  //     Color.fromARGB(255, 19, 26, 71),
+                  //     Color.fromARGB(255, 19, 26, 71),
+                  //     Color.fromARGB(255, 129, 123, 119),
+                  //   ],
+                  // ),
+                ),
+                padding: EdgeInsets.all(80),
+                child: GestureDetector(
+                  onTap: () {
+                    const url3 = 'https://youtu.be/AXVd54oe-hA';
+                    launchUrlString(url3 as String);
+                  },
+                  child: Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                    size: 70,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
