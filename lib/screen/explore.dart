@@ -68,7 +68,7 @@ class _ExploreState extends State<Explore> {
         child: Column(
           children: [
             Container(
-              height: 210,
+              height: 35,
               width: double.infinity,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -76,19 +76,35 @@ class _ExploreState extends State<Explore> {
                 colors: [
                   Color.fromARGB(255, 19, 26, 71),
                   Color.fromARGB(255, 19, 26, 71),
-                  Color.fromARGB(255, 222, 87, 9),
+                  Color.fromARGB(255, 129, 123, 119),
                 ],
               )),
-              child: Padding(
-                padding: const EdgeInsets.all(00),
-                child: Image.asset(
-                  'images/space10.gif',
-                  fit: BoxFit.fill,
-                ),
-              ),
+              // child: Padding(
+              //   padding: const EdgeInsets.all(10),
+              //   child: Image.asset(
+              //     'images/space10.gif',
+              //     fit: BoxFit.fill,
+              //   ),
+              // ),
             ),
             SizedBox(
               height: 5,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+              child: Text(
+                'Stock Market News',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 40, 2, 2),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 19),
+              ),
+            ),
+            Divider(
+              color: Colors.black,
+              thickness: 1,
+              endIndent: 30,
+              indent: 30,
             ),
             CarouselSlider(
               options: CarouselOptions(
@@ -187,5 +203,3 @@ class _ExploreState extends State<Explore> {
     );
   }
 }
-
-

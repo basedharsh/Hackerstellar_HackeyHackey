@@ -1,6 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'package:spaceodyssey/screen/loginpage.dart';
+
+
 import '../widgets/UserTile.dart';
 
 final db = FirebaseFirestore.instance;
@@ -44,7 +48,14 @@ class _UserState extends State<User> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.teal,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LoginPage(),
+            ),
+          );
+        },
         child: Icon(
           Icons.logout,
         ),
