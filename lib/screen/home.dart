@@ -58,6 +58,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+
     var mq = MediaQuery.of(context).size;
 
     return SingleChildScrollView(
